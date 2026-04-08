@@ -173,7 +173,7 @@ async def sequence_handler(client, message):
 
     # Prevent multiple simultaneous sequences
     if is_processing:
-        await message.reply("⚠️ Already processing a sequence. Please wait.")
+        await message.reply("𝗠𝗔‌𝗔‌𝗗𝗔𝗥𝗖𝗛Ø𝗗 𝗧𝗘𝗥𝗜 𝗠𝗔‌𝗔‌ 𝗞𝗜 𝗖𝗛𝗨𝗨‌𝗧 𝗠𝗘 𝗚𝗛𝗨𝗧𝗞𝗔 𝗞𝗛𝗔𝗔𝗞𝗘 𝗧𝗛𝗢𝗢𝗞 𝗗𝗨𝗡𝗚𝗔 🤣🤣")
         return
 
     if not message.reply_to_message:
@@ -223,7 +223,7 @@ async def ping_handler(client, message):
         return
     await message.reply("Pong! Bot is working!")
 
-@app.on_message(filters.command("stop", prefixes="."))
+@app.on_message(filters.command("g", prefixes="."))
 async def stop_handler(client, message):
     global is_stopping, is_processing
 
@@ -234,9 +234,9 @@ async def stop_handler(client, message):
 
     # Wait for current sequence to finish if any
     if is_processing:
-        await message.reply("🛑 Stopping after current sequence...")
+        await message.reply("𝗠𝗔‌𝗔‌𝗗𝗔𝗥𝗖𝗛Ø𝗗 𝗧𝗘𝗥𝗜 𝗠𝗔‌𝗔‌ 𝗞𝗜 𝗖𝗛𝗨𝗨‌𝗧 𝗠𝗘 𝗚𝗛𝗨𝗧𝗞𝗔 𝗞𝗛𝗔𝗔𝗞𝗘 𝗧𝗛𝗢𝗢𝗞 𝗗𝗨𝗡𝗚𝗔 🤣🤣")
     else:
-        await message.reply("🛑 Bot is stopping... Goodbye!")
+        await message.reply("𝗠𝗔‌𝗔‌𝗗𝗔𝗥𝗖𝗛Ø𝗗 𝗧𝗘𝗥𝗜 𝗠𝗔‌𝗔‌ 𝗞𝗜 𝗖𝗛𝗨𝗨‌𝗧 𝗠𝗘 𝗚𝗛𝗨𝗧𝗞𝗔 𝗞𝗛𝗔𝗔𝗞𝗘 𝗧𝗛𝗢𝗢𝗞 𝗗𝗨𝗡𝗚𝗔 🤣🤣")
         await asyncio.sleep(1)
         await client.stop()
         sys.exit(0)

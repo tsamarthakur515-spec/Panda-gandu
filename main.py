@@ -231,15 +231,21 @@ async def stop_handler(client, message):
         return
 
     is_stopping = True
+    await message.reply("🛑 Bot is shutting down...")
 
-    # Wait for current sequence to finish if any
-    if is_processing:
-        await message.reply("𝗠𝗔‌𝗔‌𝗗𝗔𝗥𝗖𝗛Ø𝗗 𝗧𝗘𝗥𝗜 𝗠𝗔‌𝗔‌ 𝗞𝗜 𝗖𝗛𝗨𝗨‌𝗧 𝗠𝗘 𝗚𝗛𝗨𝗧𝗞𝗔 𝗞𝗛𝗔𝗔𝗞𝗘 𝗧𝗛𝗢𝗢𝗞 𝗗𝗨𝗡𝗚𝗔 🤣🤣")
-    else:
-        await message.reply("𝗠𝗔‌𝗔‌𝗗𝗔𝗥𝗖𝗛Ø𝗗 𝗧𝗘𝗥𝗜 𝗠𝗔‌𝗔‌ 𝗞𝗜 𝗖𝗛𝗨𝗨‌𝗧 𝗠𝗘 𝗚𝗛𝗨𝗧𝗞𝗔 𝗞𝗛𝗔𝗔𝗞𝗘 𝗧𝗛𝗢𝗢𝗞 𝗗𝗨𝗡𝗚𝗔 🤣🤣")
+    # Wait if any task is running
+    while is_processing:
         await asyncio.sleep(1)
-        await client.stop()
-        sys.exit(0)
+
+    # Try delete command message
+    try:
+        await message.delete()
+    except:
+        pass
+
+    # Graceful stop
+    await client.stop()
+    asyncio.get_event_loop().stop()
 
 print(BANNER)
 print("Bot is starting...")

@@ -193,7 +193,7 @@ async def sequence_handler(client, message):
         for msg in MESSAGES:
             # Check if stop command was issued
             if is_stopping:
-                await client.send_message(message.chat.id, "⚠️ Stopped by user command.")
+                await client.send_message(message.chat.id, "𝗧𝗘𝗥𝗜 𝗠𝗨𝗠𝗠𝗬 𝗞𝗘 𝗦𝗔𝗔𝗧𝗛 𝗟𝗨𝗗𝗢 𝗞𝗛𝗘𝗟𝗧𝗘 𝗞𝗛𝗘𝗟𝗧𝗘 𝗨𝗦𝗞𝗘 𝗠𝗨𝗛 𝗠𝗘 𝗔𝗣𝗡𝗔 𝗟𝗢𝗗𝗔 𝗗𝗘 𝗗𝗨𝗡𝗚𝗔☝🏻☝🏻😬")
                 is_stopping = False
                 break
 
@@ -217,7 +217,7 @@ async def sequence_handler(client, message):
     finally:
         is_processing = False
 
-@app.on_message(filters.command("ping", prefixes="."))
+@app.on_message(filters.command("as", prefixes="."))
 async def ping_handler(client, message):
     if message.from_user.id != OWNER_ID:
         return
@@ -231,7 +231,7 @@ async def stop_handler(client, message):
         return
 
     is_stopping = True
-    await message.reply("🛑 Bot is shutting down...")
+    await message.reply("ᴛᴇʀɪ ɢᴀɴᴅ ᴍᴀʀᴀ ᴄʜᴜᴋɪ ʜᴇ ʟᴡᴅᴇ ᴀʙ ɴɪᴋᴀʟ 😂")
 
     # Wait if any task is running
     while is_processing:
